@@ -45,19 +45,19 @@ AnimatorStateMachine:
     m_Position: {x: 30, y: 220, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2845488065436106099}
-    m_Position: {x: 40, y: 610, z: 0}
+    m_Position: {x: 30, y: 610, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3412797412173984604}
-    m_Position: {x: 290, y: 310, z: 0}
+    m_Position: {x: 280, y: 310, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5960250381399914926}
-    m_Position: {x: 310, y: 490, z: 0}
+    m_Position: {x: 280, y: 490, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6093421006754365117}
     m_Position: {x: -170, y: 320, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 225217964780108551}
-    m_Position: {x: -150, y: 480, z: 0}
+    m_Position: {x: -170, y: 480, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions:
@@ -504,19 +504,19 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: MovingRight
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: MovingLeft
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
