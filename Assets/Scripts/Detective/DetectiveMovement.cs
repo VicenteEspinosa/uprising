@@ -15,8 +15,8 @@ public class DetectiveMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        movement.x = Input.GetAxisRaw("Horizontal Detective");
+        movement.y = Input.GetAxisRaw("Vertical Detective");
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
     }
