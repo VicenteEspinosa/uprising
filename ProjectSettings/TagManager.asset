@@ -44,7 +44,7 @@ TagManager:
   - name: BackGround2
     uniqueID: 3400726637
     locked: 0
-  - name: Walls
+  - name: Objects
     uniqueID: 3738446363
     locked: 0
   - name: Default
