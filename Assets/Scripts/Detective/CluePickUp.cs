@@ -6,7 +6,7 @@ using TMPro;
 public class CluePickUp : MonoBehaviour
 {
     public GameObject textPrefab;
-    public TextMeshProUGUI scoreText;
+    public GameObject scoreText;
 
     private int scoreNumber;
     private bool pickUpAllowed;
@@ -16,7 +16,7 @@ public class CluePickUp : MonoBehaviour
     void Start()
     {
         scoreNumber = 0;
-        scoreText.text = "Score: " + scoreNumber;
+        scoreText.GetComponentInChildren<TextMeshProUGUI>().text = "Score: " + scoreNumber;
     }
 
     // Update is called once per frame
@@ -52,6 +52,6 @@ public class CluePickUp : MonoBehaviour
     {
         Destroy(clueObject);
         scoreNumber++;
-        scoreText.text = "Score: " + scoreNumber;
+        scoreText.GetComponentInChildren<TextMeshProUGUI>().text = "Score: " + scoreNumber;
     }
 }
