@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[ExecuteInEditMode]
 public class ProgressBar : MonoBehaviour
 {
     [SerializeField]
@@ -11,9 +10,11 @@ public class ProgressBar : MonoBehaviour
     [SerializeField]
     private int maximum = 100;
     [SerializeField]
-    private int current = 0;
+    private float current = 0f;
     [SerializeField]
     private Text text;
+    [SerializeField]
+    private int timeToEnd = 3;
     // [SerializeField]
     // private bool showText = false;
     // Start is called before the first frame update
@@ -25,6 +26,7 @@ public class ProgressBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        current += Time.deltaTime / timeToEnd * maximum;
         GetCurrentFill();
     }
 
@@ -32,6 +34,16 @@ public class ProgressBar : MonoBehaviour
     {
         float fillAmount = (float)current / (float)maximum;
         content.fillAmount = fillAmount;
-        text.text = (fillAmount * maximum).ToString() + "%";
+        text.text = ((int)(fillAmount * maximum)).ToString() + "%";
+        if (fillAmount >= 1)
+        {
+            SelfDestroy();
+        }
+    }
+
+    void SelfDestroy()
+    {
+        Destroy(gameObject);
+        // Object.Destroy(this.gameObject)
     }
 }
