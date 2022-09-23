@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 3135851481390888848}
   - component: {fileID: 3135851481390888860}
   - component: {fileID: 3135851481390888861}
-  - component: {fileID: 8116400492436147027}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mutant
   m_TagString: Mutant
   m_Icon: {fileID: 0}
@@ -144,15 +143,3 @@ MonoBehaviour:
   health: 5
   bulletDamage: 1
   axeDamage: 5
---- !u!114 &8116400492436147027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3135851481390888851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4184ddc58dec349d79727fafe62005a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
