@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyColision : MonoBehaviour
+public class EnemyCollision : MonoBehaviour
 {
     public float health;
     public float bulletDamage;

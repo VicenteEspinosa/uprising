@@ -9,6 +9,7 @@ TagManager:
   - Mutant
   - Firefighter
   - Bullet
+  - Detective
   layers:
   - Default
   - TransparentFX

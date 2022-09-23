@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8392799165798317652}
   - component: {fileID: 8392799165798317653}
   - component: {fileID: 8392799165798317642}
+  - component: {fileID: 8200421840457167251}
   m_Layer: 0
   m_Name: Detective
   m_TagString: Untagged
@@ -171,6 +172,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textPrefab: {fileID: 1635288211572338168, guid: 18463332e157e2543a4bc760740c8146, type: 3}
   scoreTextPrefab: {fileID: 3849558930341166485, guid: 291f6cf3a965241409117a325ad69f71, type: 3}
+--- !u!114 &8200421840457167251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8392799165798317651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5634e130f1404c72b97a64edb1c5bba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8392799166146364149
 GameObject:
   m_ObjectHideFlags: 0
