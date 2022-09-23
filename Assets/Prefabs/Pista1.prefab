@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8148931627020315936}
   - component: {fileID: 3777513207424118445}
   - component: {fileID: 7370004649094232084}
-  - component: {fileID: -4897627478732675133}
   m_Layer: 0
   m_Name: Pista1
   m_TagString: Untagged
@@ -112,17 +111,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4, y: 0.46}
   m_EdgeRadius: 0
---- !u!114 &-4897627478732675133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3205122585281554033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 925ea8439727d1c4d92482b3db2d582a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textPrefab: {fileID: 1635288211572338168, guid: 18463332e157e2543a4bc760740c8146, type: 3}
-  clue: {fileID: 8148931627020315936}
