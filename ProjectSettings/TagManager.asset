@@ -8,6 +8,7 @@ TagManager:
   - Canvas
   - Mutant
   - Firefighter
+  - Bullet
   layers:
   - Default
   - TransparentFX
