@@ -17,6 +17,7 @@ public class DetectiveMovement : MonoBehaviour
     {
         movement.x = Input.GetAxisRaw("Horizontal Detective");
         movement.y = Input.GetAxisRaw("Vertical Detective");
+        movement.Normalize();
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
     }
