@@ -11,6 +11,9 @@ public class AnimatorHandler : MonoBehaviour
 
     Animator animator;
     float endAtackCooldownTime = 0f;
+    float horizontal;
+    float vertical;
+    float atack;
 
     // Start is called before the first frame update
     void Start()
@@ -21,9 +24,18 @@ public class AnimatorHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal Firefighter");
-        float vertical = Input.GetAxis("Vertical Firefighter");
-        float atack = Input.GetAxis("Atack Firefighter");
+        if (InteractDoor.isInteracting)
+        {
+            horizontal = 0f;
+            vertical = 0f;
+            atack = 0f;
+        }
+        else
+        {
+            horizontal = Input.GetAxis("Horizontal Firefighter");
+            vertical = Input.GetAxis("Vertical Firefighter");
+            atack = Input.GetAxis("Atack Firefighter");
+        }
 
         if (horizontal == 0  && vertical == 0)
         {
@@ -33,22 +45,6 @@ public class AnimatorHandler : MonoBehaviour
         {
             animator.SetBool("IsMoving", true);
         }
-
-        // if (horizontal > 0)
-        // {
-        //     animator.SetBool("MovingRight", true);
-        //     animator.SetBool("MovingLeft", false);
-        // }
-        // else if (horizontal < 0)
-        // {
-        //     animator.SetBool("MovingRight", false);
-        //     animator.SetBool("MovingLeft", true);
-        // }
-        // else
-        // {
-        //     animator.SetBool("MovingRight", false);
-        //     animator.SetBool("MovingLeft", false);
-        // }
 
         if (Time.time > endAtackCooldownTime)
         {
