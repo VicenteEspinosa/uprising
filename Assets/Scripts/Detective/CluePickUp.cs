@@ -6,8 +6,9 @@ using TMPro;
 public class CluePickUp : MonoBehaviour
 {
     public GameObject textPrefab;
-    public GameObject scoreText;
+    public GameObject scoreTextPrefab;
 
+    private GameObject internalScoreText;
     private int scoreNumber;
     private bool pickUpAllowed;
     private GameObject text;
@@ -15,8 +16,10 @@ public class CluePickUp : MonoBehaviour
 
     void Start()
     {
+        Transform detective = gameObject.GetComponent<Transform>();
+        internalScoreText = Instantiate(scoreTextPrefab, detective.position, detective.rotation);
         scoreNumber = 0;
-        scoreText.GetComponentInChildren<TextMeshProUGUI>().text = "Score: " + scoreNumber;
+        internalScoreText.GetComponentInChildren<TextMeshProUGUI>().text = "Score: " + scoreNumber;
     }
 
     // Update is called once per frame
@@ -52,6 +55,6 @@ public class CluePickUp : MonoBehaviour
     {
         Destroy(clueObject);
         scoreNumber++;
-        scoreText.GetComponentInChildren<TextMeshProUGUI>().text = "Score: " + scoreNumber;
+        internalScoreText.GetComponentInChildren<TextMeshProUGUI>().text = "Score: " + scoreNumber;
     }
 }

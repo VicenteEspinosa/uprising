@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textPrefab: {fileID: 1635288211572338168, guid: 18463332e157e2543a4bc760740c8146, type: 3}
-  scoreText: {fileID: 8547121657981295536, guid: 291f6cf3a965241409117a325ad69f71, type: 3}
+  scoreTextPrefab: {fileID: 3849558930341166485, guid: 291f6cf3a965241409117a325ad69f71, type: 3}
 --- !u!1 &8392799166146364149
 GameObject:
   m_ObjectHideFlags: 0
