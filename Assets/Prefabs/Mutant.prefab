@@ -47,9 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7f6b3389a82a884991aa2832d624227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 2406315425871629642, guid: 208fdd187d7764cb9a2062bd37a2c7b6, type: 3}
+  player2: {fileID: 8392799165798317651, guid: 905bcb1aa5532364fa11cc40cb98af40, type: 3}
   speed: 1.7
-  sightRange: 50
+  sightRange: 10
 --- !u!212 &3135851481390888848
 SpriteRenderer:
   m_ObjectHideFlags: 0

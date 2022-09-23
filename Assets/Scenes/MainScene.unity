@@ -2717,6 +2717,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5eded37fb7ec7b4ebb3fea0008120ac, type: 3}
+--- !u!1 &2037896719 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8392799165798317651, guid: 905bcb1aa5532364fa11cc40cb98af40, type: 3}
+  m_PrefabInstance: {fileID: 639835997}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2037896727 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8392799165798317655, guid: 905bcb1aa5532364fa11cc40cb98af40, type: 3}
@@ -2769,6 +2774,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 62754242}
+    - target: {fileID: 3135851481390888849, guid: 64acc9e90998d4dbeb98ebf84efb120c, type: 3}
+      propertyPath: player2
+      value: 
+      objectReference: {fileID: 2037896719}
+    - target: {fileID: 3135851481390888849, guid: 64acc9e90998d4dbeb98ebf84efb120c, type: 3}
+      propertyPath: sightRange
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3135851481390888851, guid: 64acc9e90998d4dbeb98ebf84efb120c, type: 3}
       propertyPath: m_Name
       value: Mutant
