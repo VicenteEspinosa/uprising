@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8392799165798317653}
   - component: {fileID: 8392799165798317642}
   - component: {fileID: 8200421840457167251}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Detective
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,6 +184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5634e130f1404c72b97a64edb1c5bba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
+  mutantDamage: 30
 --- !u!1 &8392799166146364149
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,7 +195,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8392799166146364138}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

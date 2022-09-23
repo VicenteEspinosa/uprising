@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 9217878937492177322}
   - component: {fileID: 7191847338719441158}
   - component: {fileID: 6677882668463530799}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Firefighter
   m_TagString: Firefighter
   m_Icon: {fileID: 0}
@@ -243,3 +243,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5634e130f1404c72b97a64edb1c5bba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
+  mutantDamage: 30
