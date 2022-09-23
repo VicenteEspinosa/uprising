@@ -354,6 +354,18 @@ PrefabInstance:
       propertyPath: targets.Array.data[3]
       value: 
       objectReference: {fileID: 1800361971}
+    - target: {fileID: 5124451934492791556, guid: d5eded37fb7ec7b4ebb3fea0008120ac, type: 3}
+      propertyPath: orthographic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5124451934492791556, guid: d5eded37fb7ec7b4ebb3fea0008120ac, type: 3}
+      propertyPath: field of view
+      value: 31.119675
+      objectReference: {fileID: 0}
+    - target: {fileID: 5124451934492791556, guid: d5eded37fb7ec7b4ebb3fea0008120ac, type: 3}
+      propertyPath: m_FOVAxisMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5124451934492791557, guid: d5eded37fb7ec7b4ebb3fea0008120ac, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -438,6 +450,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &487382192 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 5124451934492791556, guid: d5eded37fb7ec7b4ebb3fea0008120ac, type: 3}
+  m_PrefabInstance: {fileID: 447651334}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &530686616 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4255711149027700153, guid: c215c82ecd5dc4d96a3dd1a8ad033331, type: 3}
@@ -833,6 +850,10 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8392799165798317648, guid: 905bcb1aa5532364fa11cc40cb98af40, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 487382192}
     - target: {fileID: 8392799165798317651, guid: 905bcb1aa5532364fa11cc40cb98af40, type: 3}
       propertyPath: m_Name
       value: Detective
