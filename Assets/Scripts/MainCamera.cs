@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 [RequireComponent(typeof(Camera))]
 public class MainCamera : MonoBehaviour
@@ -22,14 +23,19 @@ public class MainCamera : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (targets.Count == 0)
+        if (targets.All(player => player == null))
         {
             return;
         }
 
-        var bounds = new Bounds(targets[0].position, Vector3.zero);
+        Transform firstTarget = targets.First(player => player != null);
+        var bounds = new Bounds(firstTarget.position, Vector3.zero);
         for (int i = 0; i < targets.Count; i++)
         {
+            if (targets[i] == null)
+            {
+                continue;
+            }
             bounds.Encapsulate(targets[i].position);
         }
 
