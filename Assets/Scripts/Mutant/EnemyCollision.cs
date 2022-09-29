@@ -1,21 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.VisualScripting;
 
 public class EnemyCollision : MonoBehaviour
 {
-    public float health;
-    public float bulletDamage;
-    public float axeDamage;
+    [SerializeField]
+    private float bulletDamage;
+
+    [SerializeField]
+    private float axeDamage;
 
     bool isCollidingWithFirefighter = false;
 
+    GameObject Firefighter;
+    GameObject Detective;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Firefighter = GameObject.FindGameObjectsWithTag("Firefighter")[0];
+        Detective = GameObject.FindGameObjectsWithTag("Detective")[0];
     }
 
     // Update is called once per frame
@@ -23,7 +29,11 @@ public class EnemyCollision : MonoBehaviour
     {
         if (!InteractDoor.isInteracting && Input.GetAxis("Atack Firefighter") != 0 && isCollidingWithFirefighter)
         {
-            TakeDamage(axeDamage);
+            TakeDamage(axeDamage, gameObject);
+        }
+        if ((float)Variables.Object(gameObject).Get("Current Health") <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -31,12 +41,17 @@ public class EnemyCollision : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            TakeDamage(bulletDamage);
+            TakeDamage(bulletDamage, gameObject);
             Destroy(collision.gameObject);
         }
         else if (collision.gameObject.tag == "Firefighter")
         {
             isCollidingWithFirefighter = true;
+            TakeDamage((float)Variables.Object(gameObject).Get("Damage"), Firefighter);
+        }
+        else if (collision.gameObject.tag == "Detective")
+        {
+            TakeDamage((float)Variables.Object(gameObject).Get("Damage"), Detective);
         }
     }
 
@@ -48,12 +63,9 @@ public class EnemyCollision : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, GameObject damageReceiver)
     {
-        health -= damage;
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
+        Variables.Object(damageReceiver).Set("Current Health", (float)Variables.Object(damageReceiver).Get("Current Health")
+            - damage);
     }
 }
