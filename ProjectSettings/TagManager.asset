@@ -44,10 +44,13 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: BackGround1
+  - name: UnderFloor
+    uniqueID: 4091306631
+    locked: 0
+  - name: Floor
     uniqueID: 3709279423
     locked: 0
-  - name: BackGround2
+  - name: BlackSquares
     uniqueID: 3400726637
     locked: 0
   - name: Objects
