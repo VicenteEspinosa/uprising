@@ -7,7 +7,7 @@ public class DetectiveMovement : MonoBehaviour
     public float moveSpeed = 5f;
 
     public Rigidbody2D rb;
-    public Camera cam;
+    // public Camera cam;
 
     Vector2 movement;
     Vector2 mousePos;
@@ -19,7 +19,7 @@ public class DetectiveMovement : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical Detective");
         movement.Normalize();
 
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
     void FixedUpdate()
