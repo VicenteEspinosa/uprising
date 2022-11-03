@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Camera))]
 public class MainCamera : MonoBehaviour
@@ -19,6 +20,14 @@ public class MainCamera : MonoBehaviour
     private void Start()
     {
         // cam = GetComponent<Camera>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 
     private void LateUpdate()
