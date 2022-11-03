@@ -9,6 +9,9 @@ public class FirefighterMovement : MonoBehaviour
 
     [SerializeField]
     private float rotationSpeed;
+
+    [SerializeField]
+    private Rigidbody2D rb;
     Quaternion toRotation;
     float verticalInput;
     float horizontalInput;
@@ -36,7 +39,8 @@ public class FirefighterMovement : MonoBehaviour
         float inputMagnitude = Mathf.Clamp01(movementDirection.magnitude);
         movementDirection.Normalize();
         
-        transform.Translate(movementDirection * speed * inputMagnitude * Time.deltaTime, Space.World);
+        // transform.Translate(movementDirection * speed * inputMagnitude * Time.deltaTime, Space.World);
+        rb.MovePosition(rb.position + movementDirection * speed * Time.fixedDeltaTime);
 
         if (movementDirection != Vector2.zero)
         {
