@@ -9,16 +9,13 @@ public class FirefighterMovement : MonoBehaviour
 
     [SerializeField]
     private float rotationSpeed;
+
+    [SerializeField]
+    private Rigidbody2D rb;
     Quaternion toRotation;
     float verticalInput;
     float horizontalInput;
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (InteractDoor.isInteracting)
@@ -35,8 +32,8 @@ public class FirefighterMovement : MonoBehaviour
         Vector2 movementDirection = new Vector2(horizontalInput, verticalInput);
         float inputMagnitude = Mathf.Clamp01(movementDirection.magnitude);
         movementDirection.Normalize();
-        
-        transform.Translate(movementDirection * speed * inputMagnitude * Time.deltaTime, Space.World);
+
+        rb.MovePosition(rb.position + movementDirection * speed * Time.fixedDeltaTime);
 
         if (movementDirection != Vector2.zero)
         {
