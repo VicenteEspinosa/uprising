@@ -7,16 +7,26 @@ public class InteractDoor : MonoBehaviour
     [HideInInspector]
     public static bool isInteracting;
     public static bool isCollidingWithDoor;
+    public static bool isCollidingWithFire;
     [SerializeField]
     float timeToUnlock;
     [SerializeField]
     GameObject CustomProgressBar;
     float startedInteractingTime;
     GameObject door;
+    GameObject fire;
     // Start is called before the first frame update
     void Start()
     {
         isInteracting = false;
+        if (!GameObject.FindGameObjectWithTag("Canvas"))
+        {
+            // Create a Canvas
+            GameObject canvas = new GameObject("Canvas");
+            canvas.tag = "Canvas";
+            canvas.AddComponent<Canvas>();
+            canvas.GetComponent<Canvas>().renderMode = RenderMode.WorldSpace;
+        }
     }
 
     // Update is called once per frame
@@ -27,12 +37,20 @@ public class InteractDoor : MonoBehaviour
             if (Time.time > startedInteractingTime + timeToUnlock)
             {
                 isInteracting = false;
-                isCollidingWithDoor = false;
-                Destroy(door);
+                if (isCollidingWithDoor)
+                {
+                    Destroy(door);
+                    isCollidingWithDoor = false;
+                }
+                else if (isCollidingWithFire)
+                {
+                    Destroy(fire);
+                    isCollidingWithFire = false;
+                }
             }
         }
 
-        if (isCollidingWithDoor && !isInteracting)
+        if ((isCollidingWithDoor || isCollidingWithFire) && !isInteracting)
         {
             // Start interacting
             if (Input.GetAxis("Interact Firefighter") != 0)
@@ -41,7 +59,14 @@ public class InteractDoor : MonoBehaviour
                 startedInteractingTime = Time.time;
                 var progressBar = GameObject.Instantiate(CustomProgressBar);
                 progressBar.transform.SetParent (GameObject.FindGameObjectWithTag("Canvas").transform, false);
-                progressBar.transform.position = door.transform.position;
+                if (isCollidingWithDoor)
+                {
+                    progressBar.transform.position = door.transform.position;
+                }
+                else if (isCollidingWithFire)
+                {
+                    progressBar.transform.position = fire.transform.position;
+                }
             }
         }
     }
@@ -53,6 +78,11 @@ public class InteractDoor : MonoBehaviour
             door = collision.gameObject;
             isCollidingWithDoor = true;
         }
+        else if (collision.gameObject.tag == "Fire")
+        {
+            fire = collision.gameObject;
+            isCollidingWithFire = true;
+        }
     }
 
     public void OnCollisionExit2D(Collision2D collision)
@@ -60,6 +90,10 @@ public class InteractDoor : MonoBehaviour
         if (collision.gameObject.tag == "Door")
         {
             isCollidingWithDoor = false;
+        }
+        else if (collision.gameObject.tag == "Fire")
+        {
+            isCollidingWithFire = false;
         }
     }
 }

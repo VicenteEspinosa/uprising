@@ -10,6 +10,7 @@ TagManager:
   - Firefighter
   - Bullet
   - Detective
+  - Fire
   layers:
   - Default
   - TransparentFX
