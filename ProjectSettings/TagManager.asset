@@ -12,6 +12,7 @@ TagManager:
   - Detective
   - Fire
   - Axe
+  - AxeSound
   layers:
   - Default
   - TransparentFX
