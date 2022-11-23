@@ -10,6 +10,8 @@ public class EnemyCollision : MonoBehaviour
 
     [SerializeField]
     private float axeDamage;
+    [SerializeField]
+    private GameObject AxeAudio;
 
     bool isCollidingWithAxe = false;
 
@@ -30,6 +32,11 @@ public class EnemyCollision : MonoBehaviour
         if ((bool)Variables.Object(Firefighter).Get("CanMove") && Input.GetAxis("Atack Firefighter") != 0 && isCollidingWithAxe)
         {
             TakeDamage(axeDamage, gameObject);
+            GameObject[] previousSoundArray = GameObject.FindGameObjectsWithTag("AxeSound");
+            if (previousSoundArray.Length == 0)
+            {
+                Instantiate<GameObject>(AxeAudio);
+            }
         }
         if ((float)Variables.Object(gameObject).Get("Current Health") <= 0)
         {

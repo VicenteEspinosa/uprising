@@ -144,6 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletDamage: 1
   axeDamage: 5
+  AxeAudio: {fileID: 5339226068646552802, guid: 83290ac1be34e4f9ea105a6f57a44c3a, type: 3}
 --- !u!114 &3359602251599281679
 MonoBehaviour:
   m_ObjectHideFlags: 0
