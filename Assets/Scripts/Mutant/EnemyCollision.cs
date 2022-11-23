@@ -11,7 +11,7 @@ public class EnemyCollision : MonoBehaviour
     [SerializeField]
     private float axeDamage;
 
-    bool isCollidingWithFirefighter = false;
+    bool isCollidingWithAxe = false;
 
     GameObject Firefighter;
     GameObject Detective;
@@ -27,13 +27,30 @@ public class EnemyCollision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!InteractDoor.isInteracting && Input.GetAxis("Atack Firefighter") != 0 && isCollidingWithFirefighter)
+        if ((bool)Variables.Object(Firefighter).Get("CanMove") && Input.GetAxis("Atack Firefighter") != 0 && isCollidingWithAxe)
         {
             TakeDamage(axeDamage, gameObject);
         }
         if ((float)Variables.Object(gameObject).Get("Current Health") <= 0)
         {
             Destroy(gameObject);
+        }
+    }
+
+    // Para colliders con isTrigger True
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Axe")
+        {
+            isCollidingWithAxe = true;
+        }
+    }
+
+     private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Axe")
+        {
+            isCollidingWithAxe = false;
         }
     }
 
@@ -44,22 +61,13 @@ public class EnemyCollision : MonoBehaviour
             TakeDamage(bulletDamage, gameObject);
             Destroy(collision.gameObject);
         }
-        else if (collision.gameObject.tag == "Firefighter")
-        {
-            isCollidingWithFirefighter = true;
-            TakeDamage((float)Variables.Object(gameObject).Get("Damage"), Firefighter);
-        }
         else if (collision.gameObject.tag == "Detective")
         {
             TakeDamage((float)Variables.Object(gameObject).Get("Damage"), Detective);
         }
-    }
-
-    public void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Firefighter")
+        else if (collision.gameObject.tag == "Firefighter")
         {
-            isCollidingWithFirefighter = false;
+            TakeDamage((float)Variables.Object(gameObject).Get("Damage"), Firefighter);
         }
     }
 
