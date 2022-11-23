@@ -5,43 +5,31 @@ using UnityEngine;
 public class FlashItem : MonoBehaviour
 {
     float timer = 0.0f;
-    bool isWhite = true;
+    bool isStartColor = true;
     [SerializeField]
-    float timeWhite = 1.0f;
+    float timeStart = 1.0f;
     [SerializeField]
-    float timeGray = 0.4f;
-    Color white = new Color(1, 1, 1, 1);
-    Color gray = new Color(0.5f, 0.5f, 0.5f, 1);
+    float timeEnd = 0.4f;
+    [SerializeField]
+    Color startColor = new Color(1, 1, 1, 1);
+    [SerializeField]
+    Color endColor = new Color(0.5f, 0.5f, 0.5f, 1);
 
     void Update()
     {
         timer += Time.deltaTime;
-        if (isWhite && timer >= timeWhite)
+        if (isStartColor && timer >= timeStart)
         {
-            isWhite = false;
+            isStartColor = false;
             timer = 0.0f;
-            setColor(gray);
+            setColor(startColor);
         }
-        else if (!isWhite && timer >= timeGray)
+        else if (!isStartColor && timer >= timeEnd)
         {
-            isWhite = true;
+            isStartColor = true;
             timer = 0.0f;
-            setColor(white);
+            setColor(endColor);
         }
-        // if (timer > timeToWait)
-        // {
-        //     timer = 0.0f;
-        //     phase++;
-        //     if (phase == 2)
-        //     {
-        //         phase = 0;
-        //         setColor(white);
-        //     }
-        //     else if (phase == 1)
-        //     {
-        //         setColor(gray);
-        //     }
-        // }
     }
     public void setColor(Color color)
     {

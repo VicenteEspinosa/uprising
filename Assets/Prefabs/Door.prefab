@@ -146,5 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 638695b29cd2b4025b74bf5a64424d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeWhite: 1
-  timeGray: 0.4
+  timeStart: 1
+  timeEnd: 0.4
+  startColor: {r: 1, g: 1, b: 1, a: 1}
+  endColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
