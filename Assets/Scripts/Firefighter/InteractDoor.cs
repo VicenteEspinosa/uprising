@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractDoor : MonoBehaviour
+
 {
+    public AudioSource doorsound;
+
     [HideInInspector]
     public static bool isInteracting;
     public static bool isCollidingWithDoor;
@@ -57,6 +60,7 @@ public class InteractDoor : MonoBehaviour
             {
                 isInteracting = true;
                 startedInteractingTime = Time.time;
+                doorsound.Play();
                 var progressBar = GameObject.Instantiate(CustomProgressBar);
                 progressBar.transform.SetParent (GameObject.FindGameObjectWithTag("Canvas").transform, false);
                 if (isCollidingWithDoor)
