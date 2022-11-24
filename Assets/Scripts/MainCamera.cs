@@ -10,16 +10,18 @@ public class MainCamera : MonoBehaviour
     public List<Transform> targets;
     public Vector3 offset;
     public float smoothTime = .1f;
-    // public float minZoom = 130f;
-    // public float maxZoom = 60f;
-    // public float zoomLimiter = 20f;
 
     private Vector3 velocity;
-    // private Camera cam;
+
+    public GameObject tutorialPrefab;
 
     private void Start()
     {
-        // cam = GetComponent<Camera>();
+        int tutorial = PlayerPrefs.GetInt("tutorial");
+        if (tutorial == 0)
+        {
+            Instantiate(tutorialPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        }
     }
 
     private void Update()
@@ -49,14 +51,7 @@ public class MainCamera : MonoBehaviour
         }
 
         Move(bounds);
-        // Zoom(bounds);
     }
-
-    // private void Zoom(Bounds bounds)
-    // {
-    //     float newZoom = Mathf.Lerp(maxZoom, minZoom, Mathf.Max(bounds.size.x, bounds.size.y) / zoomLimiter);
-    //     cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, newZoom, Time.deltaTime);
-    // }
 
     private void Move(Bounds bounds)
     {

@@ -5,7 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class ToMainFromSpawn : MonoBehaviour
 {
-    void OnTriggerEnter(Collider other){
+    void OnTriggerEnter(Collider other)
+    {
+        
+        if (GameObject.FindGameObjectsWithTag("Tutorial").Length > 0)
+        {
+            Destroy(GameObject.FindGameObjectsWithTag("Tutorial")[0]);
+        }
         SceneManager.LoadScene("MainScene");
     }
 }
