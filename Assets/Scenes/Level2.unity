@@ -2602,6 +2602,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4111192196545984057, guid: 208fdd187d7764cb9a2062bd37a2c7b6, type: 3}
+      propertyPath: AxeAudio
+      value: 
+      objectReference: {fileID: 8578212269928049919, guid: cee95a0be58db49d488672e5f3b1e905, type: 3}
     - target: {fileID: 6695722516718422077, guid: 208fdd187d7764cb9a2062bd37a2c7b6, type: 3}
       propertyPath: m_Size.y
       value: 0.7976541

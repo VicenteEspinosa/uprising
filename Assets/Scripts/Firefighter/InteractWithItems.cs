@@ -6,6 +6,8 @@ public class InteractWithItems : MonoBehaviour
 
 {
     public AudioSource doorsound;
+    [SerializeField]
+    private GameObject AxeAudio;
 
     [HideInInspector]
     public static bool isInteracting;
@@ -49,12 +51,13 @@ public class InteractWithItems : MonoBehaviour
                 if (isCollidingWithDoor)
                 {
                     doorsound.Play();
-                    Debug.Log("Interacting with door");
-                    Debug.Log(door.transform.position);
                     progressBar.transform.position = door.transform.position;
                 }
                 else if (isCollidingWithFire)
                 {
+                    GameObject fireSound = Instantiate<GameObject>(AxeAudio);
+                    // set time of fireSound to time left to extinguish fire
+                    fireSound.GetComponent<AudioSource>().time = fireSound.GetComponent<AudioSource>().clip.length - timeToExtinguishFire;
                     progressBar.transform.position = fire.transform.position;
                 }
             }
@@ -88,9 +91,6 @@ public class InteractWithItems : MonoBehaviour
         if (collision.gameObject.tag == "Door")
         {
             door = collision.gameObject;
-            Debug.Log("ENTER Colliding with door");
-            Debug.Log(door.transform.position);
-
             isCollidingWithDoor = true;
         }
         else if (collision.gameObject.tag == "Fire")
