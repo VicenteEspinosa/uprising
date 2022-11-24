@@ -64,3 +64,6 @@ TagManager:
   - name: OutCoverLayer
     uniqueID: 192156833
     locked: 0
+  - name: Text
+    uniqueID: 3599483993
+    locked: 0
