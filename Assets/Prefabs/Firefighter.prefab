@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9200479390356523277}
   - component: {fileID: 4194318142422936062}
   - component: {fileID: 4650818965708959246}
+  - component: {fileID: 4111192196545984057}
   m_Layer: 3
   m_Name: Hitbox Axe
   m_TagString: Axe
@@ -80,6 +81,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4111192196545984057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4200409596165513693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49da370ccbc4a47549f776782377a459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorsound: {fileID: 5258664302427500078}
+  timeToUnlockDoor: 3
+  timeToExtinguishFire: 3
+  CustomProgressBar: {fileID: 4187862494621880707, guid: 1ed0047bf1cbe4a3fb54272e2a38570d, type: 3}
 --- !u!1 &7525228340276374394
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,7 +110,6 @@ GameObject:
   - component: {fileID: 7525228340276374380}
   - component: {fileID: 7525228340276374379}
   - component: {fileID: 7525228340276374378}
-  - component: {fileID: 7525228340276374377}
   - component: {fileID: 7525228340276374376}
   - component: {fileID: 7525228340276374390}
   - component: {fileID: 7525228340276374383}
@@ -222,21 +238,6 @@ MonoBehaviour:
   speed: 5
   rotationSpeed: 720
   rb: {fileID: 7525228340276374376}
---- !u!114 &7525228340276374377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7525228340276374394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49da370ccbc4a47549f776782377a459, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doorsound: {fileID: 5258664302427500078}
-  timeToUnlock: 3
-  CustomProgressBar: {fileID: 4187862494621880707, guid: 1ed0047bf1cbe4a3fb54272e2a38570d, type: 3}
 --- !u!50 &7525228340276374376
 Rigidbody2D:
   serializedVersion: 4

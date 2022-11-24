@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractDoor : MonoBehaviour
+public class InteractWithItems : MonoBehaviour
 
 {
     public AudioSource doorsound;
@@ -12,7 +12,9 @@ public class InteractDoor : MonoBehaviour
     public static bool isCollidingWithDoor;
     public static bool isCollidingWithFire;
     [SerializeField]
-    float timeToUnlock;
+    float timeToUnlockDoor = 3;
+    [SerializeField]
+    float timeToExtinguishFire = 3;
     [SerializeField]
     GameObject CustomProgressBar;
     float startedInteractingTime;
@@ -35,24 +37,6 @@ public class InteractDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isInteracting)
-        {
-            if (Time.time > startedInteractingTime + timeToUnlock)
-            {
-                isInteracting = false;
-                if (isCollidingWithDoor)
-                {
-                    Destroy(door);
-                    isCollidingWithDoor = false;
-                }
-                else if (isCollidingWithFire)
-                {
-                    Destroy(fire);
-                    isCollidingWithFire = false;
-                }
-            }
-        }
-
         if ((isCollidingWithDoor || isCollidingWithFire) && !isInteracting)
         {
             // Start interacting
@@ -60,11 +44,13 @@ public class InteractDoor : MonoBehaviour
             {
                 isInteracting = true;
                 startedInteractingTime = Time.time;
-                doorsound.Play();
                 var progressBar = GameObject.Instantiate(CustomProgressBar);
                 progressBar.transform.SetParent (GameObject.FindGameObjectWithTag("Canvas").transform, false);
                 if (isCollidingWithDoor)
                 {
+                    doorsound.Play();
+                    Debug.Log("Interacting with door");
+                    Debug.Log(door.transform.position);
                     progressBar.transform.position = door.transform.position;
                 }
                 else if (isCollidingWithFire)
@@ -73,13 +59,38 @@ public class InteractDoor : MonoBehaviour
                 }
             }
         }
+
+        if (isInteracting)
+        {
+            if (isCollidingWithDoor)
+            {
+                if (Time.time > startedInteractingTime + timeToUnlockDoor)
+                {
+                    Destroy(door);
+                    isCollidingWithDoor = false;
+                    isInteracting = false;
+                }
+            }
+            else if (isCollidingWithFire)
+            {
+                if (Time.time > startedInteractingTime + timeToExtinguishFire)
+                {
+                    Destroy(fire);
+                    isCollidingWithFire = false;
+                    isInteracting = false;
+                }
+            }
+        }
     }
 
-    public void OnCollisionEnter2D(Collision2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Door")
         {
             door = collision.gameObject;
+            Debug.Log("ENTER Colliding with door");
+            Debug.Log(door.transform.position);
+
             isCollidingWithDoor = true;
         }
         else if (collision.gameObject.tag == "Fire")
@@ -89,7 +100,7 @@ public class InteractDoor : MonoBehaviour
         }
     }
 
-    public void OnCollisionExit2D(Collision2D collision)
+    public void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Door")
         {

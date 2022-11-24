@@ -24,7 +24,7 @@ public class AnimatorHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (InteractDoor.isInteracting)
+        if (InteractWithItems.isInteracting)
         {
             horizontal = 0f;
             vertical = 0f;
