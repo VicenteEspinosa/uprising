@@ -18,7 +18,7 @@ public class FirefighterMovement : MonoBehaviour
 
     void Update()
     {
-        if (InteractDoor.isInteracting)
+        if (InteractWithItems.isInteracting)
         {
             horizontalInput = 0f;
             verticalInput = 0f;
