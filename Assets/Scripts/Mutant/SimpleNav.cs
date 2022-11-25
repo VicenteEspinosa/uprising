@@ -56,7 +56,8 @@ public class SimpleNav : MonoBehaviour
             float angle = Mathf.Atan2(direction.y, direction.x)* Mathf.Rad2Deg;
             
             if(distance < sightRange)
-            {   transform.position = Vector2.MoveTowards(this.transform.position, jugador.transform.position, speed * Time.deltaTime);
+            {
+                GetComponent<Rigidbody2D>().MovePosition(Vector2.MoveTowards(this.transform.position, jugador.transform.position, speed * Time.deltaTime));
                 transform.rotation = Quaternion.Euler(Vector3.forward * angle);
             }
     }
