@@ -456,6 +456,10 @@ PrefabInstance:
       propertyPath: targets.Array.data[1]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4394344449784550290, guid: d5eded37fb7ec7b4ebb3fea0008120ac, type: 3}
+      propertyPath: m_Name
+      value: DetectiveHealth
+      objectReference: {fileID: 0}
     - target: {fileID: 5124451934492791557, guid: d5eded37fb7ec7b4ebb3fea0008120ac, type: 3}
       propertyPath: m_RootOrder
       value: 2
