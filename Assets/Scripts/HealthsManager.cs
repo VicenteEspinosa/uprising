@@ -39,7 +39,7 @@ public class HealthsManager : MonoBehaviour
         {
             PlayerPrefs.SetFloat("FH", Mathf.Max((float)Variables.Object(Firefighter).Get("Current Health"), 0));
         }
-        else if (GameObject.FindGameObjectsWithTag("Detective").Length == 1)
+        else if (GameObject.FindGameObjectsWithTag("Firefighter").Length == 1)
         {
             Firefighter = GameObject.FindGameObjectsWithTag("Firefighter")[0];
         }
