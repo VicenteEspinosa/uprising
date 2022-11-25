@@ -7,13 +7,14 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(Camera))]
 public class MainCamera : MonoBehaviour
 {
-    public List<Transform> targets;
     public Vector3 offset;
     public float smoothTime = .1f;
-
-    private Vector3 velocity;
-
     public GameObject tutorialPrefab;
+    public GameObject detectivePrefab;
+    public GameObject firefighterPrefab;
+
+    private List<Transform> targets;
+    private Vector3 velocity;
 
     private void Start()
     {
@@ -22,6 +23,14 @@ public class MainCamera : MonoBehaviour
         {
             Instantiate(tutorialPrefab, new Vector3(0, 0, 0), Quaternion.identity);
         }
+        GameObject detective = Instantiate(detectivePrefab, transform.localPosition + new Vector3(0, -1, 0), Quaternion.identity);
+        GameObject firefighter = Instantiate(firefighterPrefab, transform.localPosition + new Vector3(0, 1, 0), Quaternion.identity);
+
+        targets = new List<Transform>
+        {
+            detective.transform,
+            firefighter.transform
+        };
     }
 
     private void Update()

@@ -584,12 +584,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40809dd9ec9f4d349831556dac288439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targets:
-  - {fileID: 0}
-  - {fileID: 0}
   offset: {x: 0, y: 0, z: -5}
   smoothTime: 0.1
   tutorialPrefab: {fileID: 8262590789715855475, guid: b95df272a5bbb5c489f26e41c4359ee9, type: 3}
+  detectivePrefab: {fileID: 808017725185029952, guid: 905bcb1aa5532364fa11cc40cb98af40, type: 3}
+  firefighterPrefab: {fileID: 7525228340276374394, guid: 208fdd187d7764cb9a2062bd37a2c7b6, type: 3}
 --- !u!114 &8604302507334969436
 MonoBehaviour:
   m_ObjectHideFlags: 0

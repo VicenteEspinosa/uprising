@@ -16,9 +16,7 @@ public class HealthsManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Firefighter = GameObject.FindGameObjectsWithTag("Firefighter")[0];
-        Detective = GameObject.FindGameObjectsWithTag("Detective")[0];
-
+        
     }
 
     // Update is called once per frame
@@ -28,9 +26,17 @@ public class HealthsManager : MonoBehaviour
         {
             PlayerPrefs.SetFloat("DH", Mathf.Max((float)Variables.Object(Detective).Get("Current Health"), 0));
         }
+        else if (GameObject.FindGameObjectsWithTag("Detective").Length == 1)
+        {
+            Detective = GameObject.FindGameObjectsWithTag("Detective")[0];
+        }
         if (Firefighter)
         {
             PlayerPrefs.SetFloat("FH", Mathf.Max((float)Variables.Object(Firefighter).Get("Current Health"), 0));
+        }
+        else if (GameObject.FindGameObjectsWithTag("Detective").Length == 1)
+        {
+            Firefighter = GameObject.FindGameObjectsWithTag("Firefighter")[0];
         }
 
         var DH = PlayerPrefs.GetFloat("DH");

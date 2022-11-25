@@ -22,13 +22,21 @@ public class EnemyCollision : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Firefighter = GameObject.FindGameObjectsWithTag("Firefighter")[0];
-        Detective = GameObject.FindGameObjectsWithTag("Detective")[0];
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!Firefighter && GameObject.FindGameObjectsWithTag("Firefighter").Length == 1)
+        {
+            Firefighter = GameObject.FindGameObjectsWithTag("Firefighter")[0];
+        }
+        if (!Detective && GameObject.FindGameObjectsWithTag("Detective").Length == 1)
+        {
+            Detective = GameObject.FindGameObjectsWithTag("Detective")[0];
+        }
+
         if ((bool)Variables.Object(Firefighter).Get("CanMove") && Input.GetAxis("Atack Firefighter") != 0 && isCollidingWithAxe)
         {
             TakeDamage(axeDamage, gameObject);
