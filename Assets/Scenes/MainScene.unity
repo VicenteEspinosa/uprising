@@ -981,7 +981,7 @@ PrefabInstance:
     - target: {fileID: 3359602251599281673, guid: 64acc9e90998d4dbeb98ebf84efb120c, type: 3}
       propertyPath: player2
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1012606577}
     - target: {fileID: 3359602251599281678, guid: 64acc9e90998d4dbeb98ebf84efb120c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1515,6 +1515,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 29.166748, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1012606577 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7525228340276374394, guid: 208fdd187d7764cb9a2062bd37a2c7b6, type: 3}
+  m_PrefabInstance: {fileID: 188402818}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1039960568
 GameObject:
   m_ObjectHideFlags: 0
@@ -2143,18 +2148,22 @@ PrefabInstance:
     - target: {fileID: 3359602251599281673, guid: 64acc9e90998d4dbeb98ebf84efb120c, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2037896719}
     - target: {fileID: 3359602251599281673, guid: 64acc9e90998d4dbeb98ebf84efb120c, type: 3}
       propertyPath: player2
       value: 
-      objectReference: {fileID: 2037896719}
+      objectReference: {fileID: 1012606577}
     - target: {fileID: 3359602251599281678, guid: 64acc9e90998d4dbeb98ebf84efb120c, type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3359602251599281678, guid: 64acc9e90998d4dbeb98ebf84efb120c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.42
+      value: -2.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3359602251599281678, guid: 64acc9e90998d4dbeb98ebf84efb120c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.46
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64acc9e90998d4dbeb98ebf84efb120c, type: 3}
@@ -2968,11 +2977,11 @@ PrefabInstance:
     - target: {fileID: 3359602251599281673, guid: 64acc9e90998d4dbeb98ebf84efb120c, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2037896719}
     - target: {fileID: 3359602251599281673, guid: 64acc9e90998d4dbeb98ebf84efb120c, type: 3}
       propertyPath: player2
       value: 
-      objectReference: {fileID: 2037896719}
+      objectReference: {fileID: 1012606577}
     - target: {fileID: 3359602251599281678, guid: 64acc9e90998d4dbeb98ebf84efb120c, type: 3}
       propertyPath: m_RootOrder
       value: 6
