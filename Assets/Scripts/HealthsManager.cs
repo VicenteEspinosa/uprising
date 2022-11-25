@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class HealthsManager : MonoBehaviour
 {
@@ -28,9 +29,17 @@ public class HealthsManager : MonoBehaviour
         {
             PlayerPrefs.SetFloat("DH", Mathf.Max((float)Variables.Object(Detective).Get("Current Health"), 0));
         }
+        else
+        {
+            SceneManager.LoadScene("LoseScene");
+        }
         if (Firefighter)
         {
             PlayerPrefs.SetFloat("FH", Mathf.Max((float)Variables.Object(Firefighter).Get("Current Health"), 0));
+        }
+        else
+        {
+            SceneManager.LoadScene("LoseScene");
         }
 
         var DH = PlayerPrefs.GetFloat("DH");
