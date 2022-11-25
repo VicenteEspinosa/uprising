@@ -385,6 +385,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 6573474776113662144, guid: d5eded37fb7ec7b4ebb3fea0008120ac, type: 3}
+      propertyPath: targets.Array.data[0]
+      value: 
+      objectReference: {fileID: 2118903427}
+    - target: {fileID: 6573474776113662144, guid: d5eded37fb7ec7b4ebb3fea0008120ac, type: 3}
+      propertyPath: targets.Array.data[1]
+      value: 
+      objectReference: {fileID: 1308769621}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5eded37fb7ec7b4ebb3fea0008120ac, type: 3}
 --- !u!1 &466989448
@@ -421,11 +429,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &487382192 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 5124451934492791556, guid: d5eded37fb7ec7b4ebb3fea0008120ac, type: 3}
-  m_PrefabInstance: {fileID: 447651334}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &530686616 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4255711149027700153, guid: c215c82ecd5dc4d96a3dd1a8ad033331, type: 3}
@@ -755,7 +758,7 @@ PrefabInstance:
     - target: {fileID: 8392799165798317648, guid: 905bcb1aa5532364fa11cc40cb98af40, type: 3}
       propertyPath: cam
       value: 
-      objectReference: {fileID: 487382192}
+      objectReference: {fileID: 0}
     - target: {fileID: 8392799165798317651, guid: 905bcb1aa5532364fa11cc40cb98af40, type: 3}
       propertyPath: m_Name
       value: Detective
@@ -1111,6 +1114,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 208fdd187d7764cb9a2062bd37a2c7b6, type: 3}
+--- !u!4 &1308769621 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7525228340276374388, guid: 208fdd187d7764cb9a2062bd37a2c7b6, type: 3}
+  m_PrefabInstance: {fileID: 1251752792}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1314464236
 GameObject:
   m_ObjectHideFlags: 0
@@ -1483,7 +1491,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1623015626
 MonoBehaviour:
