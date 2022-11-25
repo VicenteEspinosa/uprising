@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class HealthsManager : MonoBehaviour
 {
@@ -30,6 +31,10 @@ public class HealthsManager : MonoBehaviour
         {
             Detective = GameObject.FindGameObjectsWithTag("Detective")[0];
         }
+        else
+        {
+            SceneManager.LoadScene("LoseScene");
+        }
         if (Firefighter)
         {
             PlayerPrefs.SetFloat("FH", Mathf.Max((float)Variables.Object(Firefighter).Get("Current Health"), 0));
@@ -37,6 +42,10 @@ public class HealthsManager : MonoBehaviour
         else if (GameObject.FindGameObjectsWithTag("Detective").Length == 1)
         {
             Firefighter = GameObject.FindGameObjectsWithTag("Firefighter")[0];
+        }
+        else
+        {
+            SceneManager.LoadScene("LoseScene");
         }
 
         var DH = PlayerPrefs.GetFloat("DH");
