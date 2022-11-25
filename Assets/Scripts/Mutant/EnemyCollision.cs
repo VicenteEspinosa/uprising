@@ -22,12 +22,6 @@ public class EnemyCollision : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         if (!Firefighter && GameObject.FindGameObjectsWithTag("Firefighter").Length == 1)
         {
             Firefighter = GameObject.FindGameObjectsWithTag("Firefighter")[0];
@@ -36,19 +30,26 @@ public class EnemyCollision : MonoBehaviour
         {
             Detective = GameObject.FindGameObjectsWithTag("Detective")[0];
         }
+    }
 
-        if ((bool)Variables.Object(Firefighter).Get("CanMove") && Input.GetAxis("Atack Firefighter") != 0 && isCollidingWithAxe)
+    // Update is called once per frame
+    void Update()
+    {
+        if (Firefighter && Detective)
         {
-            TakeDamage(axeDamage, gameObject);
-            GameObject[] previousSoundArray = GameObject.FindGameObjectsWithTag("AxeSound");
-            if (previousSoundArray.Length == 0)
+            if ((bool)Variables.Object(Firefighter).Get("CanMove") && Input.GetAxis("Atack Firefighter") != 0 && isCollidingWithAxe)
             {
-                Instantiate<GameObject>(AxeAudio);
+                TakeDamage(axeDamage, gameObject);
+                GameObject[] previousSoundArray = GameObject.FindGameObjectsWithTag("AxeSound");
+                if (previousSoundArray.Length == 0)
+                {
+                    Instantiate<GameObject>(AxeAudio);
+                }
             }
-        }
-        if ((float)Variables.Object(gameObject).Get("Current Health") <= 0)
-        {
-            Destroy(gameObject);
+            if ((float)Variables.Object(gameObject).Get("Current Health") <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
