@@ -94,6 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorsound: {fileID: 5258664302427500078}
+  FireSound: {fileID: 8578212269928049919, guid: cee95a0be58db49d488672e5f3b1e905, type: 3}
   timeToUnlockDoor: 3
   timeToExtinguishFire: 3
   CustomProgressBar: {fileID: 4187862494621880707, guid: 1ed0047bf1cbe4a3fb54272e2a38570d, type: 3}
