@@ -18,7 +18,7 @@ public class WinFromLvl2 : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene("Spawn");
+                SceneManager.LoadScene("WinScene");
             }
         }
     }

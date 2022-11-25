@@ -7,7 +7,7 @@ public class InteractWithItems : MonoBehaviour
 {
     public AudioSource doorsound;
     [SerializeField]
-    private GameObject AxeAudio;
+    private GameObject FireSound;
 
     [HideInInspector]
     public static bool isInteracting;
@@ -55,7 +55,7 @@ public class InteractWithItems : MonoBehaviour
                 }
                 else if (isCollidingWithFire)
                 {
-                    GameObject fireSound = Instantiate<GameObject>(AxeAudio);
+                    GameObject fireSound = Instantiate<GameObject>(FireSound);
                     // set time of fireSound to time left to extinguish fire
                     fireSound.GetComponent<AudioSource>().time = fireSound.GetComponent<AudioSource>().clip.length - timeToExtinguishFire;
                     progressBar.transform.position = fire.transform.position;
