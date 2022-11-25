@@ -4,28 +4,34 @@ using UnityEngine;
 
 public class SimpleNav : MonoBehaviour
 {
-    public GameObject player;
-    public GameObject player2;
     private GameObject moveto;
     public float speed;
     public float sightRange;
 
+    private GameObject player;
+    private GameObject player2;
     private float distance = 100000;
     private float distance2 = 100000;
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Firefighter");
-        player2 = GameObject.Find("Detective");
         
     }
 
 // Update is called once per frame
     void Update()
-    {   
+    {
+        if (!player)
+        {
+            player = GameObject.Find("Firefighter(Clone)");
+        }
+        if (!player2)
+        {
+            player2 = GameObject.Find("Detective(Clone)");
+        }
         CheckDistances();
 
-        if(distance<distance2)
+        if (distance<distance2)
         {          
             MoveTowards(player, distance);
         } else if (distance2 < distance){

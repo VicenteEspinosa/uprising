@@ -5,12 +5,32 @@ using UnityEngine.SceneManagement;
 
 public class CollidePlayers : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject cluePrefab;
+
+    private GameObject clueText;
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Detective" || collision.gameObject.tag == "Firefighter")
+        if (collision.gameObject.CompareTag("Detective") || collision.gameObject.CompareTag("Firefighter"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            if (GameObject.FindGameObjectsWithTag("Clue").Length > 0)
+            {
+                clueText = Instantiate(cluePrefab, new Vector3(0, 0, 0), Quaternion.identity);
+            }
+            else
+            {
+                if (GameObject.FindGameObjectsWithTag("Tutorial").Length > 0)
+                {
+                    Destroy(GameObject.FindGameObjectsWithTag("Tutorial")[0]);
+                }
+                SceneManager.LoadScene("MainScene");
+            }
+        }
+    }
+    public void OnCollisionExit2D(Collision2D collision)
+    {
+        if (clueText)
+        {
+            Destroy(clueText);
         }
     }
 }
