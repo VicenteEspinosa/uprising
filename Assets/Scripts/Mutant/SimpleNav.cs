@@ -20,16 +20,16 @@ public class SimpleNav : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+// Update is called once per frame
     void Update()
     {   
         CheckDistances();
 
         if(distance<distance2)
         {          
-            MoveTowards(player);
+            MoveTowards(player, distance);
         } else if (distance2 < distance){
-            MoveTowards(player2);
+            MoveTowards(player2, distance2);
         }
         
     }
@@ -49,13 +49,13 @@ public class SimpleNav : MonoBehaviour
         }
     }
 
-    void MoveTowards(GameObject jugador)
+    void MoveTowards(GameObject jugador, float closeness)
     {
         Vector2 direction = jugador.transform.position - transform.position;
             direction.Normalize();
             float angle = Mathf.Atan2(direction.y, direction.x)* Mathf.Rad2Deg;
             
-            if(distance < sightRange)
+            if(closeness < sightRange)
             {
                 GetComponent<Rigidbody2D>().MovePosition(Vector2.MoveTowards(this.transform.position, jugador.transform.position, speed * Time.deltaTime));
                 transform.rotation = Quaternion.Euler(Vector3.forward * angle);
