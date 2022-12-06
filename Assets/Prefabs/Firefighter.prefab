@@ -318,7 +318,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4662534144594072331}
   - component: {fileID: 5258664302427500078}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: DoorSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -246,7 +246,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7499968748456778657}
   - component: {fileID: 7340128942181855340}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Disparo
   m_TagString: Untagged
   m_Icon: {fileID: 0}

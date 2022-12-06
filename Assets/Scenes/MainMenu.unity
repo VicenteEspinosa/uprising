@@ -3351,6 +3351,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Music
       objectReference: {fileID: 0}
+    - target: {fileID: 2507384571423895489, guid: b053a8b5762f14252b89e1701cff1407, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2507384571423895489, guid: b053a8b5762f14252b89e1701cff1407, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2507384571423895491, guid: b053a8b5762f14252b89e1701cff1407, type: 3}
       propertyPath: m_RootOrder
       value: 2
