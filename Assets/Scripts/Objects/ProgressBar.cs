@@ -13,21 +13,23 @@ public class ProgressBar : MonoBehaviour
     private float current = 0f;
     [SerializeField]
     private Text text;
-    [SerializeField]
-    private int timeToEnd = 3;
-    // [SerializeField]
-    // private bool showText = false;
-    // Start is called before the first frame update
-    void Start()
-    {
+    private bool started = false;
+    bool progressPaused = false;
+    private float timeToEnd = 3f;
 
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        current += Time.deltaTime / timeToEnd * maximum;
-        GetCurrentFill();
+        if (!progressPaused && started)
+        {
+            current += Time.deltaTime / timeToEnd * maximum;
+            GetCurrentFill();
+        }
+    }
+
+    public void StartProgress(float time)
+    {
+        started = true;
+        timeToEnd = time;
     }
 
     void GetCurrentFill()
@@ -44,6 +46,15 @@ public class ProgressBar : MonoBehaviour
     void SelfDestroy()
     {
         Destroy(gameObject);
-        // Object.Destroy(this.gameObject)
+    }
+
+    public void PauseProgress()
+    {
+        progressPaused = true;
+    }
+
+    public void ResumeProgress()
+    {
+        progressPaused = false;
     }
 }
