@@ -97,6 +97,18 @@ MonoBehaviour:
   FireSound: {fileID: 8578212269928049919, guid: cee95a0be58db49d488672e5f3b1e905, type: 3}
   timeToUnlockDoor: 3
   timeToExtinguishFire: 3
+  timeBetweenKeys: 1
+  keys:
+  - {fileID: 8553423001925133129, guid: 02ffbce982f56427fa91c4b8d33ab16c, type: 3}
+  - {fileID: 2527132381039677151, guid: dd1f94ca99fc547a28062a021110d165, type: 3}
+  - {fileID: 6117620241779857012, guid: bec769b596a164161baf1edd7e598b7a, type: 3}
+  - {fileID: 1416261050282177407, guid: 01ae74696c9a948e58a74c8683c39d23, type: 3}
+  keysMeaning:
+  - a
+  - d
+  - s
+  - w
+  progressBar: {fileID: 0}
   CustomProgressBar: {fileID: 4187862494621880707, guid: 1ed0047bf1cbe4a3fb54272e2a38570d, type: 3}
 --- !u!1 &7525228340276374394
 GameObject:
