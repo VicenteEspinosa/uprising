@@ -3579,6 +3579,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.043340683
       objectReference: {fileID: 0}
+    - target: {fileID: 4573721332161587721, guid: f66b2a30e251b484ca8f2aec00c16017, type: 3}
+      propertyPath: m_Size.y
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4573721332161587722, guid: f66b2a30e251b484ca8f2aec00c16017, type: 3}
       propertyPath: m_RootOrder
       value: 33
@@ -4607,6 +4611,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.07405472
       objectReference: {fileID: 0}
+    - target: {fileID: 4573721332161587721, guid: f66b2a30e251b484ca8f2aec00c16017, type: 3}
+      propertyPath: m_Size.y
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4573721332161587722, guid: f66b2a30e251b484ca8f2aec00c16017, type: 3}
       propertyPath: m_RootOrder
       value: 32
@@ -4895,6 +4903,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 3.2226615
       objectReference: {fileID: 0}
+    - target: {fileID: 4573721332161587721, guid: f66b2a30e251b484ca8f2aec00c16017, type: 3}
+      propertyPath: m_Size.y
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4573721332161587722, guid: f66b2a30e251b484ca8f2aec00c16017, type: 3}
       propertyPath: m_RootOrder
       value: 29
@@ -4962,7 +4974,7 @@ GameObject:
   - component: {fileID: 1249288542}
   - component: {fileID: 1249288543}
   m_Layer: 0
-  m_Name: Win
+  m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7960,6 +7972,10 @@ PrefabInstance:
     - target: {fileID: 4573721332161587720, guid: f66b2a30e251b484ca8f2aec00c16017, type: 3}
       propertyPath: m_Offset.y
       value: 3.1470714
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573721332161587721, guid: f66b2a30e251b484ca8f2aec00c16017, type: 3}
+      propertyPath: m_Size.y
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4573721332161587722, guid: f66b2a30e251b484ca8f2aec00c16017, type: 3}
       propertyPath: m_RootOrder

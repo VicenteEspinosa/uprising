@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class WinFromLvl2 : MonoBehaviour
+public class BossFromLvl2 : MonoBehaviour
 {
     public GameObject cluePrefab;
 
@@ -18,7 +18,7 @@ public class WinFromLvl2 : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene("WinScene");
+                SceneManager.LoadScene("BossScene");
             }
         }
     }

@@ -123,6 +123,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &30427541
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 30427543}
+  - component: {fileID: 30427542}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &30427542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30427541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd0ea8146be634eb391f400d34844e3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &30427543
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30427541}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.875451, y: -6.5581093, z: -0.23819935}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &38878771
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3359,6 +3403,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1902626804}
   - component: {fileID: 1902626805}
+  - component: {fileID: 1902626806}
   m_Layer: 0
   m_Name: OpenBossDoorArea
   m_TagString: Untagged
@@ -3407,6 +3452,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.1780875, y: 0.8000288}
   m_EdgeRadius: 0
+--- !u!114 &1902626806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902626803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6e64f0785714a058894ece049335bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  killBossMessage: {fileID: 1635288211572338168, guid: ca284b0f4722e9448a71be1efa30fab5, type: 3}
 --- !u!1001 &1907962005
 PrefabInstance:
   m_ObjectHideFlags: 0
