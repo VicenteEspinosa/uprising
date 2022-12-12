@@ -100,4 +100,4 @@ MonoBehaviour:
   timeStart: 0.3
   timeEnd: 0.4
   startColor: {r: 1, g: 1, b: 1, a: 1}
-  endColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
+  endColor: {r: 1, g: 0.78431374, b: 0, a: 1}

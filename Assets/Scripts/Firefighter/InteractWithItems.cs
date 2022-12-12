@@ -96,7 +96,7 @@ public class InteractWithItems : MonoBehaviour
                 isCollidingWithFire = false;
             }
 
-            if (!waitingForKeyInput && Time.time > timeOfLastKey + timeBetweenKeys)
+            else if (!waitingForKeyInput && Time.time > timeOfLastKey + timeBetweenKeys)
             {
                 CreateRandomKey();
                 waitingForKeyInput = true;
