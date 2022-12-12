@@ -96,7 +96,7 @@ public class InteractWithItems : MonoBehaviour
                 isCollidingWithFire = false;
             }
 
-            if (!waitingForKeyInput && Time.time > timeOfLastKey + timeBetweenKeys)
+            else if (!waitingForKeyInput && Time.time > timeOfLastKey + timeBetweenKeys)
             {
                 CreateRandomKey();
                 waitingForKeyInput = true;
@@ -146,6 +146,6 @@ public class InteractWithItems : MonoBehaviour
         int randomIndex = Random.Range (0, keys.Length);
         currentKey = Instantiate<GameObject>(keys[randomIndex]);
         expectedInput = keysMeaning[randomIndex];
-        currentKey.transform.position = new Vector3(transform.parent.position.x, transform.parent.position.y, -1);
+        currentKey.transform.position = new Vector3(transform.parent.position.x, transform.parent.position.y, transform.parent.position.z - 1);
     }
 }
