@@ -7,6 +7,7 @@ public class InteractWithItems : MonoBehaviour
 
 {
     public AudioSource doorsound;
+    GameObject fireSound;
     [SerializeField]
     private GameObject FireSound;
 
@@ -35,6 +36,8 @@ public class InteractWithItems : MonoBehaviour
     List<Collider2D> colliders = new List<Collider2D>();
     string[] collisionTags = {"Door", "Fire"};
     Collider2D itemInteractingCollider;
+    [SerializeField]
+    bool pauseSoundWhenWaitingKey = false;
 
 
     // Start is called before the first frame update
@@ -73,7 +76,7 @@ public class InteractWithItems : MonoBehaviour
                 }
                 else if (itemInteractingCollider.gameObject.tag == "Fire")
                 {
-                    GameObject fireSound = Instantiate<GameObject>(FireSound);
+                    fireSound = Instantiate<GameObject>(FireSound);
                     // set time of fireSound to time left to extinguish fire
                     fireSound.GetComponent<AudioSource>().time = fireSound.GetComponent<AudioSource>().clip.length - timeToExtinguishFire;
                     progressBar.transform.position = itemInteractingCollider.transform.position;
@@ -97,6 +100,17 @@ public class InteractWithItems : MonoBehaviour
                 CreateRandomKey();
                 waitingForKeyInput = true;
                 progressBar.GetComponent<ProgressBar>().PauseProgress();
+                if (pauseSoundWhenWaitingKey)
+                {
+                    if (itemInteractingCollider.gameObject.tag == "Door")
+                    {
+                        doorsound.Pause();
+                    }
+                    else if (itemInteractingCollider.gameObject.tag == "Fire")
+                    {
+                        fireSound.GetComponent<AudioSource>().Pause();
+                    }
+                }
             }
             else if (waitingForKeyInput)
             {
@@ -106,6 +120,17 @@ public class InteractWithItems : MonoBehaviour
                     timeOfLastKey = Time.time;
                     waitingForKeyInput = false;
                     progressBar.GetComponent<ProgressBar>().ResumeProgress();
+                    if (pauseSoundWhenWaitingKey)
+                    {
+                        if (itemInteractingCollider.gameObject.tag == "Door")
+                        {
+                            doorsound.Play();
+                        }
+                        else if (itemInteractingCollider.gameObject.tag == "Fire")
+                        {
+                            fireSound.GetComponent<AudioSource>().Play();
+                        }
+                    }
                 }
             }
         }
