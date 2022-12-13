@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class InteractWithItems : MonoBehaviour
 
 {
     public AudioSource doorsound;
+    GameObject fireSound;
     [SerializeField]
     private GameObject FireSound;
 
     [HideInInspector]
     public static bool isInteracting;
-    public static bool isCollidingWithDoor;
-    public static bool isCollidingWithFire;
     [SerializeField]
     float timeToUnlockDoor = 3;
     [SerializeField]
@@ -33,8 +33,13 @@ public class InteractWithItems : MonoBehaviour
     [SerializeField]
     GameObject CustomProgressBar;
     float startedInteractingTime;
-    GameObject door;
-    GameObject fire;
+    List<Collider2D> colliders = new List<Collider2D>();
+    string[] collisionTags = {"Door", "Fire"};
+    Collider2D itemInteractingCollider;
+    [SerializeField]
+    bool pauseSoundWhenWaitingKey = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,7 +57,7 @@ public class InteractWithItems : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((isCollidingWithDoor || isCollidingWithFire) && !isInteracting)
+        if (colliders.Count > 0 && !isInteracting)
         {
             // Start interacting
             if (Input.GetAxis("Interact Firefighter") != 0)
@@ -62,18 +67,19 @@ public class InteractWithItems : MonoBehaviour
                 startedInteractingTime = Time.time;
                 progressBar = GameObject.Instantiate(CustomProgressBar);
                 progressBar.transform.SetParent (GameObject.FindGameObjectWithTag("Canvas").transform, false);
-                if (isCollidingWithDoor)
+                itemInteractingCollider = GetClosestCollider();
+                if (itemInteractingCollider.gameObject.tag == "Door")
                 {
                     doorsound.Play();
-                    progressBar.transform.position = door.transform.position;
+                    progressBar.transform.position = itemInteractingCollider.transform.position;
                     progressBar.GetComponent<ProgressBar>().StartProgress(timeToUnlockDoor);
                 }
-                else if (isCollidingWithFire)
+                else if (itemInteractingCollider.gameObject.tag == "Fire")
                 {
-                    GameObject fireSound = Instantiate<GameObject>(FireSound);
+                    fireSound = Instantiate<GameObject>(FireSound);
                     // set time of fireSound to time left to extinguish fire
                     fireSound.GetComponent<AudioSource>().time = fireSound.GetComponent<AudioSource>().clip.length - timeToExtinguishFire;
-                    progressBar.transform.position = fire.transform.position;
+                    progressBar.transform.position = itemInteractingCollider.transform.position;
                     progressBar.GetComponent<ProgressBar>().StartProgress(timeToExtinguishFire);
                 }
             }
@@ -84,16 +90,9 @@ public class InteractWithItems : MonoBehaviour
             if (progressBar == null)
             {
                 isInteracting = false;
-                if (isCollidingWithDoor)
-                {
-                    Destroy(door);
-                }
-                else if (isCollidingWithFire)
-                {
-                    Destroy(fire);
-                }
-                isCollidingWithDoor = false;
-                isCollidingWithFire = false;
+
+                Destroy(itemInteractingCollider.gameObject);
+                colliders.Remove(itemInteractingCollider);
             }
 
             else if (!waitingForKeyInput && Time.time > timeOfLastKey + timeBetweenKeys)
@@ -101,6 +100,17 @@ public class InteractWithItems : MonoBehaviour
                 CreateRandomKey();
                 waitingForKeyInput = true;
                 progressBar.GetComponent<ProgressBar>().PauseProgress();
+                if (pauseSoundWhenWaitingKey)
+                {
+                    if (itemInteractingCollider.gameObject.tag == "Door")
+                    {
+                        doorsound.Pause();
+                    }
+                    else if (itemInteractingCollider.gameObject.tag == "Fire")
+                    {
+                        fireSound.GetComponent<AudioSource>().Pause();
+                    }
+                }
             }
             else if (waitingForKeyInput)
             {
@@ -110,6 +120,17 @@ public class InteractWithItems : MonoBehaviour
                     timeOfLastKey = Time.time;
                     waitingForKeyInput = false;
                     progressBar.GetComponent<ProgressBar>().ResumeProgress();
+                    if (pauseSoundWhenWaitingKey)
+                    {
+                        if (itemInteractingCollider.gameObject.tag == "Door")
+                        {
+                            doorsound.Play();
+                        }
+                        else if (itemInteractingCollider.gameObject.tag == "Fire")
+                        {
+                            fireSound.GetComponent<AudioSource>().Play();
+                        }
+                    }
                 }
             }
         }
@@ -117,27 +138,17 @@ public class InteractWithItems : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Door")
+        if (collisionTags.Contains(collision.gameObject.tag))
         {
-            door = collision.gameObject;
-            isCollidingWithDoor = true;
-        }
-        else if (collision.gameObject.tag == "Fire")
-        {
-            fire = collision.gameObject;
-            isCollidingWithFire = true;
+            colliders.Add(collision);
         }
     }
 
     public void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Door")
+        if (collisionTags.Contains(collision.gameObject.tag))
         {
-            isCollidingWithDoor = false;
-        }
-        else if (collision.gameObject.tag == "Fire")
-        {
-            isCollidingWithFire = false;
+            colliders.Remove(collision);
         }
     }
 
@@ -147,5 +158,21 @@ public class InteractWithItems : MonoBehaviour
         currentKey = Instantiate<GameObject>(keys[randomIndex]);
         expectedInput = keysMeaning[randomIndex];
         currentKey.transform.position = new Vector3(transform.parent.position.x, transform.parent.position.y, transform.parent.position.z - 1);
+    }
+
+    Collider2D GetClosestCollider()
+    {
+        Collider2D closestCollider = null;
+        float closestDistance = float.MaxValue;
+        foreach (Collider2D collider in colliders)
+        {
+            float distance = Vector2.Distance(transform.position, collider.transform.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestCollider = collider;
+            }
+        }
+        return closestCollider;
     }
 }
