@@ -34,7 +34,7 @@ public class InteractWithItems : MonoBehaviour
     GameObject CustomProgressBar;
     float startedInteractingTime;
     List<Collider2D> colliders = new List<Collider2D>();
-    string[] collisionTags = {"Door", "Fire"};
+    string[] collisionTags = {"Door", "Fire", "BossDoor"};
     Collider2D itemInteractingCollider;
     [SerializeField]
     bool pauseSoundWhenWaitingKey = false;
@@ -62,25 +62,43 @@ public class InteractWithItems : MonoBehaviour
             // Start interacting
             if (Input.GetAxis("Interact Firefighter") != 0)
             {
-                timeOfLastKey = Time.time;
-                isInteracting = true;
-                startedInteractingTime = Time.time;
-                progressBar = GameObject.Instantiate(CustomProgressBar);
-                progressBar.transform.SetParent (GameObject.FindGameObjectWithTag("Canvas").transform, false);
                 itemInteractingCollider = GetClosestCollider();
-                if (itemInteractingCollider.gameObject.tag == "Door")
+                if(!(itemInteractingCollider.gameObject.tag == "BossDoor"))
                 {
-                    doorsound.Play();
-                    progressBar.transform.position = itemInteractingCollider.transform.position;
-                    progressBar.GetComponent<ProgressBar>().StartProgress(timeToUnlockDoor);
+                    timeOfLastKey = Time.time;
+                    isInteracting = true;
+                    startedInteractingTime = Time.time;
+                    progressBar = GameObject.Instantiate(CustomProgressBar);
+                    progressBar.transform.SetParent (GameObject.FindGameObjectWithTag("Canvas").transform, false);
+                    if (itemInteractingCollider.gameObject.tag == "Door")
+                    {
+                        doorsound.Play();
+                        progressBar.transform.position = itemInteractingCollider.transform.position;
+                        progressBar.GetComponent<ProgressBar>().StartProgress(timeToUnlockDoor);
+                    }
+                    else if (itemInteractingCollider.gameObject.tag == "Fire")
+                    {
+                        fireSound = Instantiate<GameObject>(FireSound);
+                        // set time of fireSound to time left to extinguish fire
+                        fireSound.GetComponent<AudioSource>().time = fireSound.GetComponent<AudioSource>().clip.length - timeToExtinguishFire;
+                        progressBar.transform.position = itemInteractingCollider.transform.position;
+                        progressBar.GetComponent<ProgressBar>().StartProgress(timeToExtinguishFire);
+                    }
                 }
-                else if (itemInteractingCollider.gameObject.tag == "Fire")
+                else
                 {
-                    fireSound = Instantiate<GameObject>(FireSound);
-                    // set time of fireSound to time left to extinguish fire
-                    fireSound.GetComponent<AudioSource>().time = fireSound.GetComponent<AudioSource>().clip.length - timeToExtinguishFire;
-                    progressBar.transform.position = itemInteractingCollider.transform.position;
-                    progressBar.GetComponent<ProgressBar>().StartProgress(timeToExtinguishFire);
+                    int sePuede = PlayerPrefs.GetInt("CanOpen");
+                    if(sePuede == 1)
+                    {
+                        timeOfLastKey = Time.time;
+                        isInteracting = true;
+                        startedInteractingTime = Time.time;
+                        progressBar = GameObject.Instantiate(CustomProgressBar);
+                        progressBar.transform.SetParent (GameObject.FindGameObjectWithTag("Canvas").transform, false);
+                        doorsound.Play();
+                        progressBar.transform.position = itemInteractingCollider.transform.position;
+                        progressBar.GetComponent<ProgressBar>().StartProgress(timeToUnlockDoor);
+                    }
                 }
             }
         }
