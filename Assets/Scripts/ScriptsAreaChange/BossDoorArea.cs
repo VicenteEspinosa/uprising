@@ -8,7 +8,7 @@ public class BossDoorArea : MonoBehaviour
 
     private GameObject killText;
 
-    public void OnCollisionEnter2D(Collision2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Detective") || collision.gameObject.CompareTag("Firefighter"))
         {
@@ -24,7 +24,7 @@ public class BossDoorArea : MonoBehaviour
         }
     }
 
-    public void OnCollisionExit2D(Collision2D collision)
+    public void OnTriggerExit2D(Collider2D other)
     {
         if (killText)
         {
