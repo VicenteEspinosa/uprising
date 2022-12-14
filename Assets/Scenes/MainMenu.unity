@@ -2516,7 +2516,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press r to restart the game
+  m_text: Press esc to pause the game and r to restart
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
   m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
@@ -3359,6 +3359,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2507384571423895490, guid: b053a8b5762f14252b89e1701cff1407, type: 3}
+      propertyPath: m_Volume
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2507384571423895490, guid: b053a8b5762f14252b89e1701cff1407, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 3cacbb7359716bd41aaa9b7d52e8af1f, type: 2}
     - target: {fileID: 2507384571423895491, guid: b053a8b5762f14252b89e1701cff1407, type: 3}
       propertyPath: m_RootOrder
       value: 2
