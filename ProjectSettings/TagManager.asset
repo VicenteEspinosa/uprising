@@ -15,6 +15,7 @@ TagManager:
   - AxeSound
   - Clue
   - Tutorial
+  - BossDoor
   layers:
   - Default
   - TransparentFX
