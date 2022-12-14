@@ -96,8 +96,8 @@ MonoBehaviour:
   doorsound: {fileID: 5258664302427500078}
   FireSound: {fileID: 8578212269928049919, guid: cee95a0be58db49d488672e5f3b1e905, type: 3}
   timeToUnlockDoor: 3
-  timeToExtinguishFire: 3
-  timeBetweenKeys: 1
+  timeToExtinguishFire: 2
+  timeBetweenKeys: 0.8
   keys:
   - {fileID: 8553423001925133129, guid: 02ffbce982f56427fa91c4b8d33ab16c, type: 3}
   - {fileID: 2527132381039677151, guid: dd1f94ca99fc547a28062a021110d165, type: 3}
@@ -110,6 +110,7 @@ MonoBehaviour:
   - w
   progressBar: {fileID: 0}
   CustomProgressBar: {fileID: 4187862494621880707, guid: 1ed0047bf1cbe4a3fb54272e2a38570d, type: 3}
+  pauseSoundWhenWaitingKey: 1
 --- !u!1 &7525228340276374394
 GameObject:
   m_ObjectHideFlags: 0
